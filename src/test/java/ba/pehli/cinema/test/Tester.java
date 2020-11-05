@@ -11,7 +11,6 @@ import org.springframework.social.oauth2.OAuth2Operations;
 new import
 new content on newbranch
 
-wrong commit
 public class Tester {
 	
 
