@@ -321,12 +321,13 @@
 
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
-			</plugin>
-		</plugins>
+	
 	</build>
+	<distributionManagement>
+          <repository>
+	    <id>org.apache.tomcat.maven</id>
+	    <name>Remote Deployment</name>
+	    <url>scp://repository.mycompany.com/repository/maven2</url>
+          </repository>
+	</distributionManagement>
 </project>
