@@ -3,22 +3,20 @@ pipeline {
     
     agent any
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
+    node{
+        stage('Checkout SCM') {
+            git 'https://github.com/joelle-saurer/DevOps-Challenges.git'
+        }    
+        
+        stage('Compile') {
+            sh 'mvn compile' 
         }
         
         stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+            sh 'mvn test'
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
+        stage('Package') {
+            sh 'mvn package'
         }
     }
 }
