@@ -2,28 +2,31 @@
 pipeline {
     
     agent any
-    environment {
-    PATH = "/opt/Maven/apache-maven-3.6.3/bin:$PATH"
+    tools {
+        maven 'Maven'
     }
  
-    stages{
+    stages {
         
         stage('Compile') {
-         steps{
+         steps {
+          echo 'Building the Application'
           sh 'mvn compile' 
          }
         }
          
         
         stage('Test') {
-         steps{   
+         steps { 
+          echo 'Testing the Application'
           sh 'mvn test'
          }
         }
      
         stage('Deploy') {
-         steps{
-            sh 'mvn package'
+         steps {
+           echo 'Deploying the Application'
+           sh 'mvn package'
          }
         }
     }
