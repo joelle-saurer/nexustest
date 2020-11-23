@@ -7,11 +7,6 @@ pipeline {
     }
  
     stages{
-        stage('Checkout SCM') {
-         steps {
-          git 'https://github.com/joelle-saurer/DevOps-Challenges.git'
-         } 
-        }
         
         stage('Compile') {
          steps{
