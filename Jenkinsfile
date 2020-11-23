@@ -2,6 +2,10 @@
 pipeline {
     
     agent any
+    environment {
+    SERVER_CREDENTIALS = credentials ('server-credentials')
+    }
+ 
     tools {
         maven 'Maven'
     }
@@ -26,6 +30,8 @@ pipeline {
         stage('Deploy') {
          steps {
            echo 'Deploying the Application'
+           echo 'Deploying with ${SERVER_CREDENTIALS}'
+           sh '${SERVER_CREDENTIALS}'
            sh 'mvn package'
          }
         }
