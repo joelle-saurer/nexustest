@@ -2,21 +2,34 @@
 pipeline {
     
     agent any
-
-    node{
+    environment {
+    PATH = /opt/Maven/apache-maven-3.6.3/bin/bin:$PATH
+    }
+ 
+    stages{
         stage('Checkout SCM') {
-            git 'https://github.com/joelle-saurer/DevOps-Challenges.git'
-        }    
+         steps {
+          git 'https://github.com/joelle-saurer/DevOps-Challenges.git'
+         } 
+        }
         
         stage('Compile') {
-            sh 'mvn compile' 
+         steps{
+          sh 'mvn compile' 
+         }
         }
+         
         
         stage('Test') {
-            sh 'mvn test'
+         steps{   
+          sh 'mvn test'
+         }
         }
-        stage('Package') {
+     
+        stage('Deploy') {
+         steps{
             sh 'mvn package'
+         }
         }
     }
 }
