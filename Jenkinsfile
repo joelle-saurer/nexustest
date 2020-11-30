@@ -19,7 +19,7 @@ pipeline {
         stage("Clone code from VCS") {
             steps {
                 script {
-                    git 'https://github.com/joelle-saurer/DevOps-Challenges.git';
+                    git clone 'https://github.com/joelle-saurer/DevOps-Challenges.git';
                 }
             }
         }
