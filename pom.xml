@@ -323,5 +323,18 @@
 	<build>
 	
 	</build>
+	  <distributionManagement>
+            <repository>
+            	<id>deploymentNexus</id>
+		<name>release</name>
+            	<url>http://localhost:8082/repository/testApp-REL/</url>
+            </repository>
+		  
+	    <snapshotRepository>
+            	<id>deploymentNexus</id>
+		<name>snapshots</name>
+            	<url>http://localhost:8082/repository/testApp-SNAP/</url>
+	    </snapshotRepository>
+          </distributionManagement>
 
 </project>
