@@ -6,13 +6,14 @@ pipeline {
         maven "Maven"
     }
     
+    <!--
     parameters {
       choice (
           name: 'BuildType',
           choices:"SNAPSHOT\nRELEASE",
           description: "Choose the Build type"
       )
-    }
+    } 
     
     environment {
         NEXUS_VERSION = "nexus3"
@@ -20,7 +21,7 @@ pipeline {
         NEXUS_URL = "http://192.168.1.149:8082"
         NEXUS_REPOSITORY = "testApp"
         NEXUS_CREDENTIAL_ID = "nexus-credentials"
-    }
+    } --> 
 
 
  
@@ -42,6 +43,14 @@ pipeline {
         }
 
         stage('Deploy') {
+         steps {
+          echo 'Deploy the Application'
+          sh 'mvn deploy'
+         }
+        }
+       
+        <!--
+        stage('Deploy') {
           when {
             expression { params.BuildType == 'SNAPSHOT' }
           }
@@ -60,9 +69,8 @@ pipeline {
           steps {
               echo 'Release Application'
               sh 'mvn -Drevision=${ARTIFACT_VERSION} release:clean release:prepare release:perform'
-         
           }
-        }
+        } --> 
 
     
     }   
