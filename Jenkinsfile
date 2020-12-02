@@ -68,7 +68,7 @@ pipeline {
             
           steps {
               echo 'Release Application'
-              sh 'mvn -Drevision=${ARTIFACT_VERSION} release:clean release:prepare release:perform'
+              sh 'mvn -Drevision=${ARTIFACT_VERSION} -B release:clean release:prepare release:perform'
           }
         } --> 
 
