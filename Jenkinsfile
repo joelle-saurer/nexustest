@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy to Nexus') {
             steps{
               echo 'Upload artifact to Nexus'
-              sh 'curl -v -u admin:admin123 --upload-file onlinecinemafile.war http://localhost:8082/repository/onlineCinema-REL/release/onlinecinemafile-1.0.0.war'
+              sh 'curl -v -u admin:admin123 --upload-file onlinecinemafile.war http://localhost:8082/repository/onlineCinema-REL/com/example/1.0.0/onlinecinemafile-1.0.0.war'
               
             }
         }
