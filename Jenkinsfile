@@ -22,7 +22,7 @@ pipeline {
             steps{
               echo 'Upload artifact to Nexus'
               sh 'cd /var/lib/jenkins/workspace/mir/'
-              sh 'curl -v -u admin:admin123 --upload-file onlinecinemafile.war http://localhost:8082/repository/onlineCinema-REL/'
+              sh 'curl -v -u admin:admin123 -X POST onlinecinemafile.war http://localhost:8082/repository/onlineCinema-REL/'
                
 
             }
