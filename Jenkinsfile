@@ -18,13 +18,17 @@ pipeline {
          }
         }
         
+        stage('Go to directory') {
+            steps {
+              sh 'cd /var/lib/jenkins/workspace/mir/'
+            }    
+        } 
+        
         stage('Deploy to Nexus') {
             steps{
               echo 'Upload artifact to Nexus'
-              sh 'cd /var/lib/jenkins/workspace/mir/'
               sh 'curl -v -u admin:admin123 POST onlinecinemafile.war http://localhost:8082/repository/onlineCinema-REL/release/onlinecinemafile-1.0.0.war'
-               
-
+              
             }
         }
      
