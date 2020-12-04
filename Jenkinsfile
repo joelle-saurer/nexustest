@@ -7,20 +7,22 @@ pipeline {
         stage('Pull') {
          steps {
           echo 'Pull Artifact'
-          sh 'wget --user=admin --password=admin http://localhost:8082/repository/onlineCinema-SNAP/joelleTraineeship/cinema/0.2.1-SNAPSHOT/cinema-0.2.1-20201203.140758-1.war'
+          sh 'wget --user=admin --password=admin http://localhost:8082/repository/onlineCinema-SNAP/joelleTraineeship/cinema/1.0.0-SNAPSHOT/cinema-1.0.0-20201204.093819-1.war'
          }
         }
 
         stage('Rename') {
          steps {
           echo 'Rename artifact'
-          sh 'mv cinema-0.2.1-20201203.140758-1.war cinema.war'
+          sh 'mv cinema-1.0.0-20201204.093819-1.war onlinecinema.war'
          }
         }
 
         stage('Deploy to Nexus') {
             steps{
-              nexusArtifactUploader artifacts: [
+              
+                
+                nexusArtifactUploader artifacts: [
                 [
                   artifactId: 'cinema', 
                   classifier: '', 
