@@ -18,22 +18,22 @@ pipeline {
          }
         }
 
-     nexusArtifactUploader artifacts: [
-         [
+        nexusArtifactUploader artifacts: [
+          [
              artifactId: 'cinema', 
              classifier: '', 
              file: 'cinema.war', 
              type: 'war'
-         ]
-     ], 
+          ]
+        ], 
          
-     credentialsId: 'nexus-credentials', 
-     groupId: 'joelleTraineeship', 
-     nexusUrl: '192.168.122.1:8082',
-     nexusVersion: 'nexus3',
-     protocol: 'http', 
-     repository: 'http://localhost:8082/repository/onlineCinema-REL/', 
-     version: '1.0.0'   
+        credentialsId: 'nexus-credentials', 
+        groupId: 'joelleTraineeship', 
+        nexusUrl: '192.168.122.1:8082',
+        nexusVersion: 'nexus3',
+        protocol: 'http', 
+        repository: 'http://localhost:8082/repository/onlineCinema-REL/', 
+        version: '1.0.0'   
 
     }   
 }
