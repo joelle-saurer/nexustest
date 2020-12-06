@@ -11,7 +11,7 @@ pipeline {
          }
         }
 
-        stage('Rename')
+        stage('Rename') {
           steps {
             echo 'Rename artifact'
             sh 'mv cinema-1.1.0-20201206.165940-2.war onlinecinema.war'
