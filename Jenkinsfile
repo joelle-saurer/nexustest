@@ -7,7 +7,7 @@ pipeline {
         stage('Pull') {
          steps {
           echo 'Pull Artifact'
-          sh 'wget --user=admin --password=admin123 http://localhost:8082/repository/onlineCinema-SNAP/joelleTraineeship/cinema/1.1.0-SNAPSHOT/content?&v=LATEST' 
+          sh 'wget --user=admin --password=admin123 http://localhost:8082/repository/onlineCinema-SNAP/joelleTraineeship/cinema/1.1.0-SNAPSHOT/cinema-1.1.0-20201206.165940-2.war' 
          }
         }
 
